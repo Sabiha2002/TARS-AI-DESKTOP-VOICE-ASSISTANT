@@ -9,8 +9,8 @@ import random
 
 
 engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
 
+voices = engine.getProperty('voices')
 # print(voices)
 # print(voices[0])
 # print(voices[0].id)
@@ -20,6 +20,8 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
 email_ids = {"person1" : "person1-email-id", "person2": "person2-email-id", "person3": "person3-email-id"}
+goodbye = ["Bye for now!", "Have a nice day!", "See you!", "Loved assisting you!"]
+
 
 def speak(audio):
     print(f"TARS: {audio}")
@@ -133,6 +135,10 @@ if __name__ == "__main__":
             except Exception as e:
                 print(e)
                 speak("Sorry Sabiha. I'm not able to send this email")
+        elif 'quit' in query or 'bye' in query:
+            bye = random.choice(goodbye)
+            speak(bye)
+            break
                 
 
         
